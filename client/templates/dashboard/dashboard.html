@@ -1,14 +1,68 @@
 <template name="dashboard">
   <div class="template-dashboard">
     <div class="page-header">
-      <h1>Dashboard</h1>
+      <h4>Dashboard</h4>
     </div>
+    
+    <div class="container">
+      <div class="col-md-5">
+      <form>
+        <div class="form-group">
+          <label for="yardSaleName">Name of your yard sale</label>
+          <input type="text" class="form-control" id="yardSaleName" name="saleName" placeholder="Yard Sale Name">
 
-    <ul class="list-group">
-      {{#each items}}
-        <li class="list-group-item">{{ name }} <span class="label label-default">{{ rating }}</span></li>
-      {{/each}}
-    </ul>
+          <label for="locationOfSale">Sale Location</label>
+          <input type="text" class="form-control" id="locationOfSale" name="saleLoc" placeholder="Location of sale">
+
+          <label for="address1">Address</label>
+          <input type="text" class="form-control" id="address1" name="address" placeholder="Address">
+
+          <label for="address2">Address line 2</label>
+          <input type="text" class="form-control" id="address2" name="address2" placeholder="Line 2">
+
+
+          <label for="zip">Zip Code</label>
+          <input type="text" class="form-control" id="zip"  name="zip" placeholder="Zip Code" >
+          <label for="dcp">Sale Decsription</label>
+          <textarea name="saleDesc" class="form-control" placeholder="A short descriptiont of what you may be selling" rows="8" cols="40"></textarea> <br>
+          <button type="submit" class="btn btn-primary">Post Sale</button>
+
+        </div>
+      </form>
+    </div>
+    <div class="col-md-5">
+      <h6>Your sales are listed below</h6>
+      {{>saleView}}
+    </div>
+  </div>
+
+
+
+
 
   </div>
+</template>
+<template name="saleView">
+  {{#each sale}}
+
+  <div class="panel panel-default">
+  <div class="panel-heading">{{saleName}}</div>
+  <div class="panel-body">
+    <label for="loc">location</label>
+    <div id="loc">{{location}}</div>
+
+    <label for="add">Address</label>
+    <div id="add">{{address}}</div>
+
+    <label for="zp">Zip</label>
+    <div id="zp">{{zip}}</div>
+
+    <label for="dcs">Description</label>
+    <div id="dcs">{{description}}</div>
+
+  </div>
+
+</div>
+
+  {{/each}}
 </template>

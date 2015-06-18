@@ -13,3 +13,6 @@ Meteor.publishComposite("items", function() {
     // ]
   }
 });
+Meteor.publish('sale',function(){
+    return Sale.find();
+});
